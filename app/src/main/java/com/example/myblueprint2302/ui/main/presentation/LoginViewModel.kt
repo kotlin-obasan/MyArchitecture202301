@@ -2,7 +2,6 @@ package com.example.myblueprint2302.ui.main.presentation
 
 import android.content.Context
 import android.util.Log
-import androidx.annotation.VisibleForTesting
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
