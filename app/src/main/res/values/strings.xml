@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyBluePrint2302</string>
+    <string name="mail_address">メールアドレス</string>
+    <string name="password">パスワード</string>
+    <string name="button_login">ログイン</string>
+    <string name="button_next">次へ</string>
+    <string name="common_error_text">ログインに失敗しました。</string>
+    <string name="ok">OK</string>
+</resources>
