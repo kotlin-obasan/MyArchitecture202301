@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.myblueprint2302.R
 import com.example.myblueprint2302.databinding.FragmentLoginBinding
@@ -53,18 +51,15 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
         // ログイン成功時に次の画面に遷移する
         loginViewModel.isLoginCompleted().observe(this) {
             if(it == true) {
-                transitionToFerrisWheelFragment()
+                transitionToNextFragment()
             }
         }
 
         binding.buttonLogIn.setOnClickListener {
             // ログイン処理を行う
             login()
-        }
-
-        //todo: ご用意いただいているAPIから500が返ってくるため、「次へ」ボタン押下で画面遷移します。
-        binding.buttonNext.setOnClickListener {
-            transitionToFerrisWheelFragment()
+            // とにかく遷移
+            transitionToNextFragment()
         }
 
         // メアドとパスワード入力欄の編集中にバリデーションチェックを行う
@@ -101,9 +96,9 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
         super.onDestroy()
     }
 
-    private fun transitionToFerrisWheelFragment() {
-        val action = LoginFragmentDirections.actionLoginFragmentToFerrisWheelFragment()
-        findNavController().navigate(action)
+    private fun transitionToNextFragment() {
+//        val action = LoginFragmentDirections.actionLoginFragmentToNextFragment()
+//        findNavController().navigate(action)
     }
 
     private fun login() {
@@ -111,8 +106,8 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
     }
 
     private fun showCommonErrorDialog(message: String) {
-        val action = LoginFragmentDirections
-            .actionLoginFragmentToCommonErrorDialogFragment(message)
-        findNavController().navigate(action)
+//        val action = LoginFragmentDirections
+//            .actionLoginFragmentToCommonErrorDialogFragment(message)
+//        findNavController().navigate(action)
     }
 }
