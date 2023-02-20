@@ -2,7 +2,6 @@ package com.example.myblueprint2302.ui.main.presentation
 
 import android.content.Context
 import android.util.Log
-import androidx.annotation.VisibleForTesting
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,6 +9,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
+import com.example.myblueprint2302.ui.main.data.LoginUser
+import com.example.myblueprint2302.ui.main.data.UserInfo
+import com.example.myblueprint2302.ui.main.datasource.ApiState
+import com.example.myblueprint2302.ui.main.datasource.LoginRepository
+import com.example.myblueprint2302.ui.main.ext.default
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.collectLatest
@@ -49,8 +53,8 @@ class LoginViewModel @Inject constructor(
     val showCommonErrorDialog = MutableLiveData<Boolean>()
 
     //ログインAPIからの戻り値
-    private val loginLiveDataPrivate = MutableLiveData<Result<UserInfo>>()
-    val loginLiveData: LiveData<Result<UserInfo>> get() = loginLiveDataPrivate
+    private val loginLiveDataPrivate = MutableLiveData<ApiState<UserInfo>>()
+    val loginLiveData: LiveData<ApiState<UserInfo>> get() = loginLiveDataPrivate
 
     //todo; デバッグしてる時間がなかったのでMediatorLiveData諦めます
     //ほんとはこうしたかった、、、
@@ -106,7 +110,7 @@ class LoginViewModel @Inject constructor(
             try {
                 loginRepository.login(loginUser).collectLatest {
                     when(it) {
-                        is Result.Success -> {
+                        is ApiState.Success -> {
                             progressDialog.value = false
                             Log.d("loginRepository result",it.value.toString())
                             loginLiveDataPrivate.postValue(it)
@@ -116,7 +120,7 @@ class LoginViewModel @Inject constructor(
                             //次の画面へ遷移
                             loginCompleted.value = true
                         }
-                        is Result.Error -> {
+                        is ApiState.Error -> {
                             Log.d("loginRepository result",it.error.message.toString())
                             loginLiveDataPrivate.value = it
                             progressDialog.value = false
