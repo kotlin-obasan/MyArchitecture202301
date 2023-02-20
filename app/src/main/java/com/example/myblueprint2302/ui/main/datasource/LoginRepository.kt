@@ -8,11 +8,11 @@ import javax.inject.Singleton
 
 @Singleton
 class LoginRepository @Inject constructor(
-    private val loginAPIInterface: LoginAPIInterface) {
+    private val loginInterface: LoginInterface) {
 
     //loginAPIInterface.login()の返り値はRetrofit2のResponse型
     //↑をapiFlowがラップすることでResult型を出力するFlowを返す
     fun login(loginUser: LoginUser): Flow<ApiState<UserInfo>> = apiFlow {
-        loginAPIInterface.login("login", loginUser)
+        loginInterface.login("login", loginUser)
     }
 }
