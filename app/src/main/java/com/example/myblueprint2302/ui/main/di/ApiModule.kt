@@ -22,7 +22,7 @@ object ApiModule {
 
     @Singleton
     @Provides
-    fun provideLoginApi(@Named("Login")retrofit: Retrofit): LoginInterface = retrofit.create(
+    fun provideLogin(@Named("Login")retrofit: Retrofit): LoginInterface = retrofit.create(
         LoginInterface::class.java)
 
     @Singleton
