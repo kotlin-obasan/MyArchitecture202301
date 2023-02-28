@@ -1,7 +1,7 @@
 package com.example.myblueprint2302.ui.main.di
 
 import com.example.myblueprint2302.BuildConfig
-import com.example.myblueprint2302.ui.main.datasource.LoginInterface
+import com.example.myblueprint2302.ui.main.repository.LoginInterface
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module

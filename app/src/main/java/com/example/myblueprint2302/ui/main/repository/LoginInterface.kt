@@ -1,4 +1,4 @@
-package com.example.myblueprint2302.ui.main.datasource
+package com.example.myblueprint2302.ui.main.repository
 
 import com.example.myblueprint2302.ui.main.data.LoginUser
 import com.example.myblueprint2302.ui.main.data.UserInfo
@@ -7,6 +7,8 @@ import retrofit2.http.Body
 import retrofit2.http.Headers
 import retrofit2.http.POST
 import retrofit2.http.Url
+import java.io.IOException
+import javax.inject.Inject
 
 interface LoginInterface {
 
