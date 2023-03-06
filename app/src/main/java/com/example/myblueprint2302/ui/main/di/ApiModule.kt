@@ -1,7 +1,7 @@
 package com.example.myblueprint2302.ui.main.di
 
 import com.example.myblueprint2302.BuildConfig
-import com.example.myblueprint2302.ui.main.repository.LoginInterface
+import com.example.myblueprint2302.ui.main.data.repository.LoginInterface
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -22,8 +22,8 @@ object ApiModule {
 
     @Singleton
     @Provides
-    fun provideLogin(@Named("Login")retrofit: Retrofit): LoginInterface = retrofit.create(
-        LoginInterface::class.java)
+    fun provideLogin(@Named("Login")retrofit: Retrofit): LoginInterface =
+        retrofit.create(LoginInterface::class.java)
 
     @Singleton
     @Provides

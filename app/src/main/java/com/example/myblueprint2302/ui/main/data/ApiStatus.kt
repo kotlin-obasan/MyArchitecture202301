@@ -1,4 +1,4 @@
-package com.example.myblueprint2302.ui.main.repository
+package com.example.myblueprint2302.ui.main.data
 
 sealed class ApiStatus<out T> {
     // APIコールが実行中である

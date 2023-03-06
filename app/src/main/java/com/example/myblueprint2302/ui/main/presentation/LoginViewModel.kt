@@ -9,11 +9,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
-import com.example.myblueprint2302.ui.main.data.LoginUser
-import com.example.myblueprint2302.ui.main.data.UserInfo
-import com.example.myblueprint2302.ui.main.repository.LoginRepository
+import com.example.myblueprint2302.ui.main.data.dto.LoginUser
+import com.example.myblueprint2302.ui.main.data.dto.UserInfo
+import com.example.myblueprint2302.ui.main.data.repository.LoginRepository
 import com.example.myblueprint2302.ui.main.ext.default
-import com.example.myblueprint2302.ui.main.repository.ApiStatus
+import com.example.myblueprint2302.ui.main.data.ApiStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.collectLatest

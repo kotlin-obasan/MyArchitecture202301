@@ -1,5 +1,6 @@
-package com.example.myblueprint2302.ui.main.repository
+package com.example.myblueprint2302.ui.main.data.repository
 
+import com.example.myblueprint2302.ui.main.data.ApiStatus
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

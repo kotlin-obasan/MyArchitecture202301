@@ -1,4 +1,4 @@
-package com.example.myblueprint2302.ui.main.data
+package com.example.myblueprint2302.ui.main.data.dto
 
 import androidx.annotation.Keep
 
