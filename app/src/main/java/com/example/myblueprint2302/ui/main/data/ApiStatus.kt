@@ -6,5 +6,5 @@ sealed class ApiStatus<out T> {
     // APIコールが成功した
     data class Success<out T>(val value: T) : ApiStatus<T>()
     // APIコールが失敗した
-    data class Error(val errorCode: Int) : ApiStatus<Nothing>()
+    data class Error(val errorCode: Throwable) : ApiStatus<Nothing>()
 }
