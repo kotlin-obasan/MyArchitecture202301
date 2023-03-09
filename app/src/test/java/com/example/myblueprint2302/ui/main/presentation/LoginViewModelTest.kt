@@ -55,7 +55,7 @@ class LoginViewModelTest {
 
     @Test
     fun `メールアドレスの入力チェック_正常`() {
-        assertThat(viewModel.isCorrectMailAddress("test@news.picks.com")).isEqualTo(true)
+        assertThat(viewModel.isCorrectMailAddress("test@test.com")).isEqualTo(true)
     }
 
     @Test
