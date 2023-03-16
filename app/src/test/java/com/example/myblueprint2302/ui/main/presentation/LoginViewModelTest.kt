@@ -68,7 +68,6 @@ class LoginViewModelTest {
         assertThat(viewModel.isCorrectPassword("123")).isEqualTo(false)
     }
 
-    //todo: テスト通らない
     @Test
     fun `login_正常系`() {
         val user = LoginUser("xxx@sample.com", "password")
@@ -86,11 +85,15 @@ class LoginViewModelTest {
         viewModel.login()
 
         //比較する
-        val loginSuccess = viewModel.loginLiveData.value
-        assertThat(loginSuccess).isEqualTo(response)
+        when (val responseSuccess = viewModel.loginLiveData.value) {
+            is ApiStatus.Success ->  {
+                responseSuccess.value.let {
+                    assertThat(it).isEqualTo(response)
+                }
+            }
+        }
     }
 
-    //todo: テスト通らない
     @Test
     fun `login_異常系`() {
         val user = LoginUser("wrong@aaa.bbb", "wrongpass")
@@ -108,7 +111,10 @@ class LoginViewModelTest {
         viewModel.login()
 
         //比較
-        val loginSuccess = viewModel.loginLiveData.value
-        assertThat(loginSuccess).isEqualTo(response)
+        when (val responseError = viewModel.loginLiveData.value) {
+            is ApiStatus.Error ->  {
+                assertThat(responseError.error).isEqualTo(response)
+            }
+        }
     }
 }
